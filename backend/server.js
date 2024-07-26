@@ -11,11 +11,7 @@ const http = require('http');
 dotenv.config();
 
 const app = express();
-app.use(cors({
-    origin: "https://bibhu-azure.vercel.app", 
-    methods: ["GET", "POST"],
-    credentials: true
-}));
+
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
