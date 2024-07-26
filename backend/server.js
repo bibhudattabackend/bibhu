@@ -12,7 +12,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors({
-    origin: "https://isattendance.vercel.app", 
+    origin: "https://bibhu-azure.vercel.app", 
     methods: ["GET", "POST"],
     credentials: true
 }));
