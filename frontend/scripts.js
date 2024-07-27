@@ -61,7 +61,7 @@ document.getElementById('registerForm').addEventListener('submit', function(e) {
         };
 
         // Post data to server
-        fetch('https://riteshinternship.vercel.app/api/register', {
+        fetch('https://bibhu-git-dev-bibhudattabackends-projects.vercel.app/api/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
