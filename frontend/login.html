@@ -70,6 +70,22 @@
         .register-link a:hover {
             text-decoration: underline;
         }
+        .social-auth {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .social-auth a {
+            background-color: #db4437;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1rem;
+        }
+        .social-auth a:hover {
+            background-color: #c1351d;
+        }
     </style>
 </head>
 <body>
@@ -88,6 +104,13 @@
         </form>
         <div class="register-link">
             <p>Don't have an account? <a href="register.html">Sign Up</a></p>
+        </div>
+
+        <div class="social-auth">
+            <p>Or sign in with:</p>
+            <a href="https://bibhu-azure.vercel.app/auth/google">
+                <span class="fa fa-google"></span> SignIn with Google
+            </a>
         </div>
     </div>
 
@@ -129,7 +152,7 @@
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
-            fetch('https://ritesh-peach.vercel.app/api/login', {
+            fetch('https://bibhu-azure.vercel.app/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
