@@ -88,7 +88,7 @@ const courseSchema = new mongoose.Schema({
 }, { timestamps: true });
 const Course = mongoose.model('Course', courseSchema);
 app.get('/',async(req,res)=>{
-  res.json({message:"hello")
+  res.json({message:"hello"})
 })
 // Instructor Schema
 const instructorSchema = new mongoose.Schema({
