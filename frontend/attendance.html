@@ -161,7 +161,7 @@
                 return;
             }
 
-            fetch('https://ritesh-peach.vercel.app/api/attendance', {
+            fetch('http://localhost:3000/api/attendance', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -189,7 +189,7 @@
                 return;
             }
 
-            fetch('https://ritesh-peach.vercel.app/api/records', {
+            fetch('http://localhost:3000/api/records', {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -200,14 +200,15 @@
                 const recordsTableBody = document.getElementById('recordsTableBody');
                 recordsTableBody.innerHTML = '';
                 data.forEach(record => {
+                    console.log('userid',record)
                     const recordRow = document.createElement('tr');
                     recordRow.innerHTML = `
                         <td>${record.firstName} ${record.lastName}</td>
-                        <td>${new Date(record.timestamp).toLocaleString()}</td>
+                        <td>${new Date(record.lastMarkedDate).toLocaleString()}</td>
                         <td>${record.emailOrMobile}</td>
                         <td>
-                            <span class="icon" onclick="editRecord('${record.userId}')">&#9998;</span>
-                            <span class="icon" onclick="deleteRecord('${record.userId}')">&#10060;</span>
+                            <span class="icon" onclick="editRecord('${record.user}')">&#9998;</span>
+                            <span class="icon" onclick="deleteRecord('${record.user}')">&#10060;</span>
                         </td>
                     `;
                     recordsTableBody.appendChild(recordRow);
@@ -226,7 +227,7 @@
                 return;
             }
 
-            fetch(`https://ritesh-peach.vercel.app/api/records/${userId}`, {
+            fetch(`http://localhost:3000/api/records/${userId}`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -268,7 +269,7 @@
                 emailOrMobile: document.getElementById('editEmailOrMobile').value
             };
 
-            fetch(`https://ritesh-peach.vercel.app/api/records/${userId}`, {
+            fetch(`http://localhost:3000/api/records/${userId}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -298,13 +299,14 @@
         // Delete Record
         function deleteRecord(userId) {
             const token = localStorage.getItem('token');
+            
             if (!token) {
                 alert('User not authenticated. Please log in.');
                 return;
             }
 
             if (confirm('Are you sure you want to delete this record?')) {
-                fetch(`https://ritesh-peach.vercel.app/api/records/${userId}`, {
+                fetch(`http://localhost:3000/api/records/${userId}`, {
                     method: 'DELETE',
                     headers: {
                         'Authorization': `Bearer ${token}`
