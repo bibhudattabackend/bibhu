@@ -87,7 +87,9 @@ const courseSchema = new mongoose.Schema({
     students: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }] // References to users enrolled in the course
 }, { timestamps: true });
 const Course = mongoose.model('Course', courseSchema);
-
+app.get('/',async(req,res)=>{
+  res.json({message:"hello")
+})
 // Instructor Schema
 const instructorSchema = new mongoose.Schema({
     firstName: { type: String, required: true },
