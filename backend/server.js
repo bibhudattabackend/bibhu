@@ -337,7 +337,7 @@ app.post('/api/attendance', authenticateToken, async (req, res) => {
             }
         } else {
             // If no attendance record exists, create a new one
-           
+           const user = await User.findById(userId);
 
             attendance = new Attendance({
                 user: userId,
